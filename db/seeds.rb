@@ -1,0 +1,2 @@
+gs = GeneralSetting.create!(registered_name: 'Shree Communication Pvt. Ltd.')
+user = User.create!(:email => 'edu@admin.in', :password => '123456789', :password_confirmation => '123456789', general_setting_id: gs.id, role: 'SuperAdmin')

@@ -1,0 +1,95 @@
+<div class="col-md-12 section-top-15 wow fadeInDown" data-wow-duration="1s"
+                             data-wow-delay="0.2s">
+        <div class="panel panel-primary">
+            <div class="panel-heading">GeneralSetting
+        </div>
+                <%= form_for @general_setting,method: :patch do |f| %>
+                    <div class="panel-body">
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height">Name</label>
+                                    <span style="color:red">*</span>
+                                        <%= f.text_field :registered_name, placeholder: "Registered Name", class: "form-control" %>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height">Contact</label>
+                                    <span style="color:red">*</span>
+                                        <%= f.text_field :phone_no, placeholder: "Phone No", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-4">
+                               <label for="text_input" class="label_height">Alternate contact</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :mobile_no, placeholder: "Mobile No", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height">Address</label>
+                                     <span style="color:red">*</span>
+                                        <%= f.text_field :address, placeholder: "Address", class: "form-control"%>
+                           </div>
+
+                            <div class="col-md-4">
+                               <label for="text_input" class="label_height">Email</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :email, placeholder: "Email", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-4">
+                               <label for="text_input" class="label_height">Testing Cost</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :testing_cost, placeholder: "Testing Cost", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-4">
+                               <label for="text_input" class="label_height">Repair Cost</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :repair_cost, placeholder: "Repair Cost", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-4">
+                               <label for="text_input" class="label_height">Software Updation Cost</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :software_testing_cost, placeholder: "Software Cost", class: "form-control"%>
+                            </div>
+
+                            <div class="col-md-2">
+                                <label for="text_input" class="label_height">GST</label>
+                                    
+                                        <%= f.text_field :gst, placeholder: "GST", class: "form-control"%>
+                           </div>
+
+                           <div class="col-md-2">
+                                <label for="text_input" class="label_height">SGST</label>
+                                    
+                                        <%= f.text_field :sgst, placeholder: "SGST", class: "form-control"%>
+                           </div>
+
+                           <div class="col-md-2">
+                                <label for="text_input" class="label_height">CGST</label>
+                                    
+                                        <%= f.text_field :cgst, placeholder: "CGST", class: "form-control"%>
+                           </div>
+
+                           <div class="col-md-2">
+                                <label for="text_input" class="label_height">IGST</label>
+                                    
+                                        <%= f.text_field :igst, placeholder: "IGST", class: "form-control"%>
+                           </div>
+
+                             <div class="col-md-4">
+                               <label for="text_input" class="label_height">Change Password</label>
+                                     <span style="color:red">*</span>
+                                         <%= f.text_field :password_reset, placeholder: "Change Password", class: "form-control"%>
+                            </div>
+
+                               
+                                   
+                        </div>
+                        <div class="col-sm-4 col-sm-offset-4 input_success">
+                                         <%= f.submit "Update", class: 'btn btn-success btn-md form-control'%>
+                        </div>
+                 
+</div>
+ <% end %>

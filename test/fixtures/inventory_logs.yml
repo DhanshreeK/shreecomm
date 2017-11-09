@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inventory_type: one
+  transfer_id: MyString
+
+two:
+  inventory_type: two
+  transfer_id: MyString
