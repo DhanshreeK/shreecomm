@@ -3,9 +3,9 @@ class InvoicePdf < Prawn::Document
   def initialize(inventory_items,page_size)
     super()
     @customer_detail = inventory_items
-     text "Service Center: #{GeneralSetting.last.name}",:align => :right,size: 10,:style => :bold_italic
+     text "Service Center: #{GeneralSetting.last.registered_name}",:align => :right,size: 10,:style => :bold_italic
          text "Address: #{GeneralSetting.last.address}",:align => :right,size: 10,:style => :bold_italic
-         text "Contact No: #{GeneralSetting.last.contact}",:align => :right,size: 10,:style => :bold_italic
+         text "Contact No: #{GeneralSetting.last.phone_no}",:align => :right,size: 10,:style => :bold_italic
          text "Email Address: #{GeneralSetting.last.email}",:align => :right,size: 10,:style => :bold_italic
          
          header

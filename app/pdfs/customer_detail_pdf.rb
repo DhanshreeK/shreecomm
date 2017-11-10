@@ -3,14 +3,14 @@ class CustomerDetailPdf < Prawn::Document
 	def initialize(customer_details,page_size)
 		super()
 		@customer_detail = customer_details
-         text "Service Center: #{GeneralSetting.last.name}",:align => :right,size: 10,:style => :bold_italic
+         text "Service Center: #{GeneralSetting.last.registered_name}",:align => :right,size: 10,:style => :bold_italic
          text "Address: #{GeneralSetting.last.address}",:align => :right,size: 10,:style => :bold_italic
-         text "Contact No: #{GeneralSetting.last.contact}",:align => :right,size: 10,:style => :bold_italic
+         text "Contact No: #{GeneralSetting.last.phone_no}",:align => :right,size: 10,:style => :bold_italic
          text "Email Address: #{GeneralSetting.last.email}",:align => :right,size: 10,:style => :bold_italic
         header
 		text "<u><i><b>Acknowledgement of Service Request</b></i></u>", size: 14, :style => :bold_italic,:inline_format => true,
   	                                               :leading => 10,:height => 110,:align => :center,:text_color => "111111"
-        text "Bill No: #{@customer_detail.bill_no} Call For Status: #{GeneralSetting.last.contact}",:style => :bold_italic,:inline_format => true,size: 10
+        text "Bill No: #{@customer_detail.bill_no} Call For Status: #{GeneralSetting.last.phone_no}",:style => :bold_italic,:inline_format => true,size: 10
        
         move_down(5)
         customer_detail_table_content
@@ -39,13 +39,13 @@ class CustomerDetailPdf < Prawn::Document
 
 
 	def customer_detail
-	    data = [["Customer Name", @customer_detail.customer_name, "Request Date",@customer_detail.date, "Address", @customer_detail.address],
+	    data = [["Customer Name", @customer_detail.custome_name, "Request Date",@customer_detail.date, "Address", @customer_detail.address],
                  ["Customer No", @customer_detail.customer_no ,"Telephone No", @customer_detail.telephone_no,"Mobile No", @customer_detail.mobile_no],
                  ["Model Name", @customer_detail.mobile_modal_name, "Purchase Date", @customer_detail.purchase_date, "Serial No", @customer_detail.serial_no],
                  ["Full warranty", @customer_detail.full_warranty, "Labor only", @customer_detail.labor_only, "Parts only", @customer_detail.parts_only],
                  ["Out of warranty", @customer_detail.out_of_warranty, "Repair Received", @customer_detail.repair_received, "Repair Completed", @customer_detail.repair_completed],
                  ["Accessory", @customer_detail.accessory, "Engineer Name", @customer_detail.employee.first_name+"-"+@customer_detail.employee.last_name, "Repair Completed", @customer_detail.repair_completed],
-                 ["Repair Description", @customer_detail.repair_description, "Condition Code", @customer_detail.condition_code, "Symptom Code", @customer_detail.symptom_code],
+                 ["Repair Description", @customer_detail.repair_description, "Condition Code", @customer_detail.condition_code, "Symptom Code", @customer_detail.symtom_code],
                  ["Defect Code", @customer_detail.defect_code, "Repair Code", @customer_detail.repair_code]]
     end
 

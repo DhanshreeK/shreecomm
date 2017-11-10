@@ -998,8 +998,8 @@ ul.dropdown-menu.two.drp-mnu li a i {
     background-position:-8px -4px;
 }
 span.text {
+    /*color: #FFF;*/ 
     font-size: 1em;
-    color: #fff;
     margin-left: 10px;
 	text-decoration:none;
 }

@@ -1,14 +1,14 @@
-<div class="col-md-12 section-top-15 wow fadeInDown" data-wow-duration="1s"
-                             data-wow-delay="0.2s">
-       <div class="panel panel-primary">
+<div class="panel panel-primary">
             <div class="panel-heading">Employee Details
         </div>
  <div class="panel-body">
 <p id="notice"><%= notice %></p>
-<%= link_to 'New Employee', new_employee_path %>
- <div class="box-content" style="overflow-y: auto;height: 550px;width:100%">
-<table class="table table-striped table-bordered responsive">
-  <thead>
+<%= link_to 'New Employee', new_employee_path, class: 'btn red' %>
+     <div class="graph">
+                              <div class="tables">
+                            
+                                <table class="table table-bordered" style="overflow-y: auto;height: 300px;width:100%">
+                <thead>
     <tr>
      <th><b>Employee Number</b></th>
       <th><b>First name</b></th>
@@ -33,9 +33,9 @@
         <td><%= employee.email %></td>
         <td><%= employee.address %></td>
         <td><%= employee.employee_type.name %></td>
-        <td><%= link_to 'Show', employee,class: "btn btn-warning btn-sm"  %></td>
-        <td><%= link_to 'Edit', edit_employee_path(employee),class: "btn btn-success btn-sm"  %></td>
-        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
+        <td><%= link_to 'Show', employee %></td>
+        <td><%= link_to 'Edit', edit_employee_path(employee)  %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }%></td>
       </tr>
     <% end %>
   </tbody>
