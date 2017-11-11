@@ -1,12 +1,15 @@
 class CustomerDetailsController < ApplicationController
   before_action :set_customer_detail, only: [:show, :edit, :update, :destroy]
-def index
+
+  # GET /customer_details
+  # GET /customer_details.json
+  def index
     @customer_details = CustomerDetail.all
     respond_to do |format|
     format.html
     format.json
     format.js 
-    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','custome_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
+    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
     format.xls { send_data @customer_details.to_csv(col_sep: "\t") }
     end
   end
@@ -19,13 +22,12 @@ def index
     @customer_details = CustomerDetail.all
     respond_to do |format|
      format.html
-     format.pdf do
-     render pdf: "show_work_done", 
+     format.xls do
+     render xls: "show_work_done", 
      template: "customer_details/show_work_done.html.erb",
      layout: false
-   end
-  end
-   
+     end
+    end
   end
 
   def pending_status
@@ -46,35 +48,36 @@ def index
   end
 
 
-   def show_transactions_list
+  def show_transactions_list
     @start_date = params[:start_date].to_date
     @end_date = params[:end_date].to_date
-     @status = params[:status]
-    @customer_details = CustomerDetail.all
+    @status = params[:status]
+    @customer_details = CustomerDetail.list(@start_date, @end_date)
     respond_to do |format|
      format.html
-     format.pdf do
-     render pdf: "show_transactions_list", 
-     template: "customer_details/show_transactions_list.html.erb",
-     layout: false
-   end
-  end
+     format.xls do
+       render xls: "show_transactions_list", 
+       template: "customer_details/show_transactions_list.html.erb",
+       layout: false
+     end
+    end
   end
 
+  
   def report
     
   end
 
-  def show_pending_status
+ def show_pending_status
      @customer_details = CustomerDetail.all
     respond_to do |format|
      format.html
-     format.pdf do
-     render pdf: "show_pending_status", 
-     template: "customer_details/show_pending_status.html.erb",
-     layout: false
-   end
- end
+     format.xls do
+       render xls: "show_pending_status", 
+       template: "customer_details/show_pending_status.html.erb",
+       layout: false
+      end
+    end
   end
 
   def good_delivered
@@ -83,7 +86,7 @@ def index
     format.html
     format.json
     format.js 
-    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','custome_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
+    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
     format.xls { send_data @customer_details.to_csv(col_sep: "\t") }
     end
   end
@@ -92,8 +95,8 @@ def index
     @customer_details = CustomerDetail.all
     respond_to do |format|
      format.html
-     format.pdf do
-     render pdf: "show_good_delivered", 
+     format.xls do
+     render xls: "show_good_delivered", 
      template: "customer_details/show_good_delivered.html.erb",
      layout: false
    end
@@ -184,6 +187,6 @@ def index
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_detail_params
-      params.require(:customer_detail).permit(:bill_no, :custome_name, :date, :address, :customer_no, :telephone_no, :mobile_no, :mobile_modal_name, :purchase_date, :serial_no, :full_warranty, :labor_only, :parts_only, :out_of_warranty, :repair_received, :repair_completed, :return_by_date, :defect_description, :b2b_svc, :accessory, :repair_description, :condition_code, :symtom_code, :defect_code, :repair_code, :testing_cost, :repair_cost, :software_testing_cost, :imei1, :imei2, :advanced_paid, :status, :estimated_cost, :balance_cost, :grand_total, :employee_id)
+      params.require(:customer_detail).permit(:custome_name, :imei1, :imei2,:testing_cost,:repair_cost,:software_testing_cost,:compalint_type,:status,:estimated_cost,:balance_cost,:advanced_paid,:employee_id,:bill_no, :mobile_modal_name,:customer_name, :date, :address, :customer_no, :telephone_no, :mobile_no, :model_name, :purchase_date, :serial_no, :full_warranty, :labor_only, :parts_only, :out_of_warranty, :repair_received, :repair_completed, :good_delivered, :return_by_date, :defect_description, :b2b_svc, :accessory, :remark, :repair_description, :condition_code, :symptom_code, :defect_code, :repair_code)
     end
 end

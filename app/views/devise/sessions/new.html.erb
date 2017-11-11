@@ -1,13 +1,6 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Augment an Admin Panel Category Flat Bootstrap Responsive Web Template | Login :: w3layouts</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Augment Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
- <!-- Bootstrap Core CSS -->
 <link href="/assets/bootstrap.min.css" rel='stylesheet' type='text/css' />
 <!-- Custom CSS -->
 <link href="/assets/style.css" rel='stylesheet' type='text/css' />
@@ -34,16 +27,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h3 class="inner-tittle t-inner">Login</h3>
                                
                                 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                                   <div class="form">
                                    <div class="field">
-                                            <%= f.label :email %><br />
-                                            <%= f.email_field :email, autofocus: true,placeholder: "Enter Email", class: "form-control" %>
+
+                                            <%= f.text_field :email, value: "E-mail address", onfocus: "this.value = '';" ,onblur: "if (this.value == '') {this.value = 'E-mail address';}", input_type: "text" %>
                                           </div>
 
                                           <div class="field">
-                                            <%= f.label :password %><br />
-                                            <%= f.password_field :password, autocomplete: "off",placeholder: "Enter Password", class: "form-control" %>
+                                            <%= f.password_field :password,value: "Password", onfocus: "this.value = '';",onblur: "if (this.value == '') {this.value = 'Password';}" %>
                                           </div>
 
+                                          <div class="new">
                                           <% if devise_mapping.rememberable? -%>
                                             <div class="field">
                                               <%= f.check_box :remember_me %>
@@ -52,17 +46,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                           <% end -%>
 
                                           <div class="actions">
-                                            <%= f.submit "Log in" %>
+                                            <%= f.submit "Log in" , onclick: "myFunction()", value: "Login"  %>
                                           </div>
+                                           <div class="clearfix">
                                         <% end %>
-                                    <div class="new">
+                                    
+                                    <p class="sign">
                                      Do not have an account ? 
-                                              <%= render "devise/shared/links" %>
-                                            
+                                             <a> <%=  render "devise/shared/links" %></a>
+                                            </p>
                                       <div class="clearfix"></div>
                                     </div>
                               
                             </div>
+
+                            </div>
+                            </div>
+                             
 
                             
                           </div>

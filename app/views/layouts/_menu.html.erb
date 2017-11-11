@@ -1,7 +1,7 @@
-	<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
-<title>Vishwa Educational Consultant</title>
+<title>Shree Communications</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content=" " />
@@ -17,11 +17,13 @@
 <!-- lined-icons -->
 <link rel="stylesheet" href="/assets/icon-font.min.css" type='text/css' />
 <!-- //lined-icons -->
-<script src="/assets/jquery-1.10.2.min.js"></script>
 <script src="/assets/amcharts.js"></script>	
 <script src="/assets/serial.js"></script>	
 <script src="/assets/light.js"></script>	
 <script src="/assets/radar.js"></script>	
+
+<link href="/assets/bootstrap-select.css" rel="stylesheet">
+<script src="/assets/jquery-3.2.1.min.js"></script>
 <!-- <link href="/assets/barChart.css" rel='stylesheet' type='text/css' /> -->
 <link href="/assets/fabochart.css" rel='stylesheet' type='text/css' />
 <!--clock init-->
@@ -132,20 +134,21 @@
 			<!--/sidebar-menu-->
 				<div class="sidebar-menu">
 					<header class="logo">
-					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="index.html"> <span id="logo"> <h1>Augment</h1></span> 
+					<a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="/home/dashboard"> <span id="logo"> <h4>Shree Communications</h4></span> 
 					<!--<img id="logo" src="" alt="Logo"/>--> 
 				  </a> 
 				</header>
 			<div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
 			<!--/down-->
 							<div class="down">	
-									  <a href="index.html"><img src="/assets/admin.jpg"></a>
-									  <a href="index.html"><span class=" name-caret">Jasmin Leo</span></a>
-									 <p>System Administrator in Company</p>
+									
+									  <a href="/home/dashboard"><span class=" name-caret"><%=current_user.email%></span></a>
+									 <p><%= current_user.role%></p>
 									<ul>
-									<li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-
+									<li><a class="tooltips" href="#"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
+										<%if current_user.role == 'SuperAdmin'%>
 										<li><a class="tooltips" href="/general_settings/new"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
+										<%end%>
 							
 
 										<li><a class="tooltips" data-method="delete" href="/users/sign_out" data-method= 'delete'><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
@@ -156,6 +159,7 @@
 									<ul id="menu" >
 										<li><a href="/home/dashboard"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a></li>
 
+										<%if current_user.role == 'SuperAdmin'%>
 										 <li id="menu-academico" ><a href="#"><i class="fa fa-table"></i> <span>Employee</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 
 										   <ul id="menu-academico-sub" >
@@ -165,6 +169,7 @@
 											
 										  </ul>
 										</li>
+										<%end%>
 										 <li id="menu-academico" ><a href="#"><i class="fa fa-file-text-o"></i> <span>Inventory</span> <span class="fa fa-angle-right" style="float: right"></span></a>
 											 <ul id="menu-academico-sub" >
 												<li id="menu-academico-avaliacoes" ><a href="/inventory_types">Inventory Type</a></li>
@@ -179,6 +184,19 @@
 										  <ul id="menu-academico-sub" >
 										    <li id="menu-academico-avaliacoes" ><a href="/customer_details/new">New Customer</a></li>
 										    <li id="menu-academico-boletim" ><a href="/customer_details">View All</a></li>
+								      </ul>
+									 </li>
+
+
+									 <%if current_user.role == 'SuperAdmin'%>
+								    <li id="menu-academico" ><a href="#"><i class="lnr lnr-envelope"></i> <span>Report</span> <span class="fa fa-angle-right" style="float: right"></span></a>
+										  <ul id="menu-academico-sub" >
+										    <li id="menu-academico-boletim" ><a href="/customer_details/work_done">Work Done</a></li>
+										    <li id="menu-academico-boletim" ><a href="/customer_details/pending_status">Pending Status</a></li>
+										    <li id="menu-academico-boletim" ><a href="/customer_details/good_delivered">Good Delivered</a></li>
+										     <li id="menu-academico-boletim" ><a href="/customer_details/report">Daily Report</a></li>
+								    <%end%>
+
 											<!-- <li id="menu-academico-boletim" ><a href="404.html">404</a></li>
 											<li id="menu-academico-boletim" ><a href="sign.html">Sign up</a></li>
 											<li id="menu-academico-boletim" ><a href="profile.html">Profile</a></li>
@@ -243,6 +261,7 @@
 							</script>
 <!--js -->
 <link rel="stylesheet" href="/assets/vroom.css">
+<script src="/assets/bootstrap-select.js"></script>
 <script type="text/javascript" src="/assets/vroom.js"></script>
 <script type="text/javascript" src="/assets/TweenLite.min.js"></script>
 <script type="text/javascript" src="/assets/CSSPlugin.min.js"></script>

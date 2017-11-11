@@ -9,7 +9,7 @@ end
 gem 'devise'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'responders'
-gem 'selectize-rails'
+gem 'bootstrap-select-rails'
 gem 'cancancan'
 gem 'safe_attributes'
 gem 'escpos'

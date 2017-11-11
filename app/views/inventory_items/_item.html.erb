@@ -4,32 +4,35 @@
     <div class="panel-body">
       <div class="row form-group">
 
-        <div class="col-md-2 form-group2 group-mail">
+      <div class="validation-form">
+        <div class="col-md-4 form-group2 group-mail">
           <label for="text_input" class="label_height">Select Inventory Type</label>
             
-            <%= c.collection_select :inventory_id, InventoryType.order(:name), :id, :name,{prompt:true}, include_blank: true, class: "form-control" %>
+             <%= c.collection_select :inventory_type_id, InventoryType.order(:name), :id, :name,{prompt:true}, include_blank: true, class: "form-control" %>
         </div>
 
-         <div class="col-md-2 form-group2 group-mail">
+         <div class="col-md-4 form-group2 group-mail">
           <label for="text_input" class="label_height">Select Inventory</label>
-            
-            <%= c.grouped_collection_select :inventory_id, InventoryType.order(:name), :inventories, :name,:id, :part_no,{prompt:true} ,class: "form-control", include_blank: true %>
-        </div>
-
-        <div class="col-md-2">
+             <%= c.grouped_collection_select :inventory_id, InventoryType.order(:name), :inventories, :name,:id, :part_no,{prompt:true} ,class: "form-control selectpicker", "data-live-search" => "true"%>
+        </div></div>
+     <br><br><br><br>
+<div class="form-group">
+        <div class="col-md-4">
           <label for="text_input" class="label_height">Description</label>
-          <input type="description" name="description" id="description"></td>
+          <input type="description" name="description" id="description"  class="form-control"></td>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-4">
           <label for="text_input" class="label_height">Branch Name</label>
-          <input type="branch" name="branch" id="branch"></td>
+          <input type="branch" name="branch" id="branch"  class="form-control"></td>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-md-4">
           <label for="text_input" class="label_height">Actual MRP</label>
-          <input type="map" name="map" id="map"></td>
+          <input type="map" name="map" id="map"  class="form-control"></td>
         </div>
+
+</div>
 
 
       
@@ -79,7 +82,7 @@
         
         <td align="right"><%= dis = (((GeneralSetting.last.sgst.to_f + GeneralSetting.last.cgst.to_f)*(s.inventory.map.to_f))/100) + s.inventory.map.to_f%></td>
 
-        <td><%= link_to 'Destroy', inventory_item_path(s), method: :delete, data: { confirm: 'Are you sure you want to delete?' },class: "btn btn-danger btn-sm"  %></td>
+        <td><%= link_to 'Destroy', inventory_item_path(s), method: :delete, data: { confirm: 'Are you sure you want to delete?' }  %></td>
         
       </tr>
       <% total_amount+= dis%>
@@ -134,20 +137,19 @@
       <div class="pull-right">
         <b>Estimated Cost: </b><%= text_field_tag :amount, @total_estimate_cost =total_amount.to_f + @repair_gst.to_f + @testing_gst.to_f + @software.to_f%></div>
       </div>
-    </div>
+   
 
     <div class="col-md-11" align= "right">
       <div class="pull-right">
         <b>Advanced Paid: </b><%=@customer_detail.advanced_paid.to_f %></div>
       </div>
-    </div>
-
+   
     <div class="col-md-11" align= "right">
       <div class="pull-right">
         <b>Balanced Payment: </b><%=@total_estimate_cost - @customer_detail.advanced_paid.to_f%></div>
       </div>
     </div>
-    
+     </div>
     
      
   

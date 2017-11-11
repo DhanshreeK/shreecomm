@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
+  devise_for :users, controllers: { registrations: 'registrations' }
+    as :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   
-  resources :customer_details
   resources :customer_details do
     collection do 
       get :existing_customer, :search_customer, :work_done, :pending_status, :good_delivered, :show_work_done
-      get :show_pending_status, :show_good_delivered, :report, :show_transactions_list
+      get :show_pending_status, :show_good_delivered, :report, :show_transactions_list, :work_report
       post :transactions_list
     end
     
@@ -37,8 +41,8 @@ Rails.application.routes.draw do
 
   resources :inventory_types
 
-  root 'home#index'
-  devise_for :users, controllers: { registrations: 'registrations' }
+  root 'home#dashboard'
+ 
   resources :employees
   resources :employee_types
   resources :general_settings

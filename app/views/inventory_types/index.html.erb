@@ -1,13 +1,14 @@
-<div class="col-md-12 section-top-15 wow fadeInDown" data-wow-duration="1s"
-                             data-wow-delay="0.2s">
-       <div class="panel panel-primary">
+<div class="panel panel-primary">
             <div class="panel-heading">Inventory Type Details
         </div>
  <div class="panel-body">
  <p id="notice"><%= notice %></p>
-<%= link_to "Add New Inventory Type",new_inventory_type_path%>
- <div class="box-content" style="overflow-y: auto;height: 550px;width:100%">
-<table class="table table-striped table-bordered responsive">
+<%= link_to "Add New Inventory Type",new_inventory_type_path, class: 'btn red'%>
+      <div class="graph">
+                              <div class="tables">
+                            
+                                <table class="table table-bordered" style="overflow-y: auto;height: 300px;width:100%">
+                <thead>
     <tr>
     <th><b>InventoryType Id</b></th>
       <th><b>Name</b></th>
@@ -20,9 +21,9 @@
       <tr>
         <td><%= i + 1%></td>
         <td><%= inventory_type.name %></td>
-        <td><%= link_to 'Show', inventory_type, class: "btn btn-success btn-sm"%></td>
-        <td><%= link_to 'Edit', edit_inventory_type_path(inventory_type), class: "btn btn-danger btn-sm" %></td>
-        <td><%= link_to 'Destroy', inventory_type, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-warning btn-sm" %></td>
+        <td><%= link_to 'Show', inventory_type%></td>
+        <td><%= link_to 'Edit', edit_inventory_type_path(inventory_type) %></td>
+        <td><%= link_to 'Destroy', inventory_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
                                  </tbody>

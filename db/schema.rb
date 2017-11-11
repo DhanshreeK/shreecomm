@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109202537) do
+ActiveRecord::Schema.define(version: 20171110052546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,8 +169,10 @@ ActiveRecord::Schema.define(version: 20171109202537) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "customer_detail_id"
+    t.bigint "inventory_type_id"
     t.index ["customer_detail_id"], name: "index_inventory_items_on_customer_detail_id"
     t.index ["inventory_id"], name: "index_inventory_items_on_inventory_id"
+    t.index ["inventory_type_id"], name: "index_inventory_items_on_inventory_type_id"
   end
 
   create_table "inventory_logs", force: :cascade do |t|
@@ -235,6 +237,7 @@ ActiveRecord::Schema.define(version: 20171109202537) do
   add_foreign_key "inventories", "transfers"
   add_foreign_key "inventory_items", "customer_details"
   add_foreign_key "inventory_items", "inventories"
+  add_foreign_key "inventory_items", "inventory_types"
   add_foreign_key "inventory_logs", "inventory_types"
   add_foreign_key "transfers", "inventory_types"
   add_foreign_key "user_employees", "employees"

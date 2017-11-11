@@ -6,6 +6,8 @@ class CustomerDetail < ApplicationRecord
     accepts_nested_attributes_for :inventory_items, :allow_destroy => true
     scope :shod, ->(id) { where(id: id).take }
     after_save :create_engineer_table
+    scope :list, ->(s, e) \
+  { where(date: s..e) }
 
 	def create_engineer_table
       @engineer = EngineerDetail.create!(:bill_no => self.bill_no, :custome_name => self.custome_name, :date => self.date, :address => self.address, :customer_no => self.customer_no, :telephone_no => self.telephone_no, :mobile_no => self.mobile_no, :mobile_modal_name => self.mobile_modal_name, :purchase_date => self.purchase_date, :serial_no => self.serial_no, :full_warranty => self.full_warranty, :labor_only => self.labor_only, :parts_only => self.parts_only, :out_of_warranty => self.out_of_warranty, :repair_received => self.repair_received, :repair_completed => self.repair_completed, :return_by_date => self.return_by_date, :defect_description => self.defect_description, :b2b_svc => self.b2b_svc, :accessory => self.accessory, :repair_description => self.repair_description, \

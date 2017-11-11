@@ -1,203 +1,196 @@
-<p id="notice"><%= notice %></p>
-
-<div class="col-md-12 section-top-5 wow fadeInDown" data-wow-duration="1s"
+<div class="col-md-12 section-top-15 wow fadeInDown" data-wow-duration="1s"
                              data-wow-delay="0.2s">
         <div class="panel panel-primary">
-            <div class="panel-heading">Customer Detail
+            <div class="panel-heading">Acknowledgment of Service Request
         </div>
-<p id="notice"><%= notice %></p>
+                    <div class="panel-body">
 
-<div class="panel-body">
-              <div class="row form-group">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-<%= link_to 'Download Customer PDF ', customer_detail_path(@customer_detail, format: 'pdf'),target: '_blank' %> <b> | </b>
 
-<%= link_to 'Download Engineer PDF', engineer_detail_path(@customer_detail,format: 'pdf'),target: '_blank' %>
-<p>
-  <strong>Bill no:</strong>
-  <%= @customer_detail.bill_no %>
-</p>
+                        <div class="row form-group">
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Customer Name:</b></label>&nbsp;
+                                  
+                                    <%= @customer_detail.custome_name %>
+                            </div>
 
-<p>
-  <strong>Custome name:</strong>
-  <%= @customer_detail.custome_name %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Date:</b></label>&nbsp;
+                                  
+                                    <%= @customer_detail.date %>
+                            </div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @customer_detail.date %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Address:</b></label>&nbsp;
+                                    
+                                    <%= @customer_detail.address %>
+                            </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @customer_detail.address %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Customer No:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.customer_no %>
+                            </div>
 
-<p>
-  <strong>Customer no:</strong>
-  <%= @customer_detail.customer_no %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Telephone No:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.telephone_no %>
+                            </div>
 
-<p>
-  <strong>Telephone no:</strong>
-  <%= @customer_detail.telephone_no %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Mobile No:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.mobile_no %>
+                            </div>
 
-<p>
-  <strong>Mobile no:</strong>
-  <%= @customer_detail.mobile_no %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Model Name:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.model_name %>
+                            </div>
 
-<p>
-  <strong>Mobile modal name:</strong>
-  <%= @customer_detail.mobile_modal_name %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Purchase Date:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.purchase_date %>
+                            </div>
 
-<p>
-  <strong>Purchase date:</strong>
-  <%= @customer_detail.purchase_date %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Serial No:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.serial_no %>
+                            </div>
 
-<p>
-  <strong>Serial no:</strong>
-  <%= @customer_detail.serial_no %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Full warranty:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.full_warranty %>
+                            </div>
 
-<p>
-  <strong>Full warranty:</strong>
-  <%= @customer_detail.full_warranty %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Labor only:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.labor_only %>
+                            </div>
 
-<p>
-  <strong>Labor only:</strong>
-  <%= @customer_detail.labor_only %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Parts only:</label></label>&nbsp;
+                                   
+                                    <%= @customer_detail.parts_only %>
+                            </div>
 
-<p>
-  <strong>Parts only:</strong>
-  <%= @customer_detail.parts_only %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Out of warranty:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.out_of_warranty%>
+                            </div>
 
-<p>
-  <strong>Out of warranty:</strong>
-  <%= @customer_detail.out_of_warranty %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair Received:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_received%>
+                            </div>
 
-<p>
-  <strong>Repair received:</strong>
-  <%= @customer_detail.repair_received %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair Completed:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_completed %>
+                            </div>
 
-<p>
-  <strong>Repair completed:</strong>
-  <%= @customer_detail.repair_completed %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Good Delivered:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.return_by_date%>
+                            </div>
 
-<p>
-  <strong>Return by date:</strong>
-  <%= @customer_detail.return_by_date %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Defect Description:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.defect_description%>
+                            </div>
 
-<p>
-  <strong>Defect description:</strong>
-  <%= @customer_detail.defect_description %>
-</p>
 
-<p>
-  <strong>B2b svc:</strong>
-  <%= @customer_detail.b2b_svc %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Accessory:</label>&nbsp;
+                                   
+                                    <%= @customer_detail.accessory %>
+                            </div>
 
-<p>
-  <strong>Accessory:</strong>
-  <%= @customer_detail.accessory %>
-</p>
+                        
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Engineer Name:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.employee.first_name %>
+                            </div>
 
-<p>
-  <strong>Repair description:</strong>
-  <%= @customer_detail.repair_description %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair completed:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_completed %>
+                            </div>
 
-<p>
-  <strong>Condition code:</strong>
-  <%= @customer_detail.condition_code %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair Description:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_description %>
+                            </div>
 
-<p>
-  <strong>Symtom code:</strong>
-  <%= @customer_detail.symtom_code %>
-</p>
+                           <!--  <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Condition Code:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.condition_code %>
+                            </div>
 
-<p>
-  <strong>Defect code:</strong>
-  <%= @customer_detail.defect_code %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Testing Cost:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.testing_cost %>
+                            </div>
 
-<p>
-  <strong>Repair code:</strong>
-  <%= @customer_detail.repair_code %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair Cost:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_cost %>
+                            </div> -->
 
-<p>
-  <strong>Testing cost:</strong>
-  <%= @customer_detail.testing_cost %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Software Updation:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.software_testing_cost %>
+                            </div>
 
-<p>
-  <strong>Repair cost:</strong>
-  <%= @customer_detail.repair_cost %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>IMEI 1:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.imei1 %>
+                            </div>
 
-<p>
-  <strong>Software testing cost:</strong>
-  <%= @customer_detail.software_testing_cost %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>IMEI 2:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.imei2%>
+                            </div>
 
-<p>
-  <strong>Imei1:</strong>
-  <%= @customer_detail.imei1 %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Repair Code:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.repair_code%>
+                            </div>
 
-<p>
-  <strong>Imei2:</strong>
-  <%= @customer_detail.imei2 %>
-</p>
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Status:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.status%>
+                            </div>
+                        </div>
 
-<p>
-  <strong>Advanced paid:</strong>
-  <%= @customer_detail.advanced_paid %>
-</p>
+                        <div class="col-sm-12 col-sm-offset-3 input_success">
+                          <%= link_to 'Download Customer PDF ', customer_detail_path(@customer_detail, format: 'pdf'),target: '_blank', class: "btn red"%> <b> | </b>
+                          <%= link_to 'Download Engineer PDF', engineer_detail_path(@customer_detail,format: 'pdf'),target: '_blank', class: "btn orange" %>
+                        </div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @customer_detail.status %>
-</p>
 
-<p>
-  <strong>Estimated cost:</strong>
-  <%= @customer_detail.estimated_cost %>
-</p>
-
-<p>
-  <strong>Balance cost:</strong>
-  <%= @customer_detail.balance_cost %>
-</p>
-
-<p>
-  <strong>Grand total:</strong>
-  <%= @customer_detail.grand_total %>
-</p>
-
-<p>
-  <strong>Employee:</strong>
-  <%= @customer_detail.employee.first_name %>
-</p>
-
-<%= link_to 'Edit', edit_customer_detail_path(@customer_detail) %> |
-<%= link_to 'Back', customer_details_path %>
-</div>
-</div>
+  
 </div>
 </div>
 </div>
