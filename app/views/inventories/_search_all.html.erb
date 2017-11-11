@@ -37,10 +37,10 @@
         <td><%= inventory.status %></td>
         <td><%= inventory.latest_modify_date %></td>
         <td><%= inventory.inventory_type.name %></td>
-        <td><%= link_to 'Transfer', transfer_inventory_transfer_path(inventory.inventory_type.id, inventory.id),class: "btn btn-danger btn-sm"%></td>
-        <td><%= link_to 'Show', inventory,class: "btn btn-warning btn-sm"  %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory),class: "btn btn-success btn-sm" %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
+        <td><%= link_to 'Transfer', transfer_inventory_transfer_path(inventory.inventory_type.id, inventory.id)%></td>
+        <td><%= link_to 'Show', inventory%></td>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory)%></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <%end%>
        <%end%>
