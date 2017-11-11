@@ -54,7 +54,7 @@
         <td><%= link_to 'Transfer', transfer_inventory_transfer_path(inventory.inventory_type.id, inventory.id)%></td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
      <% total_amt += inventory.total_stock_value.to_i%>
       <%total_stock_qty_amt += inventory.total_stock_qty.to_i%>
