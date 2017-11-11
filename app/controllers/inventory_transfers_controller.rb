@@ -13,9 +13,13 @@ class InventoryTransfersController < ApplicationController
   # find inventory_type which we selected,
   # and perform authorization
   def select
-     @inventory_type = InventoryType.shod(params[:inventory_type_id])
+     @inventory_type = InventoryType.shod(params[:inventory_transfer_inventory_type_id])
      @inventories = @inventory_type.inventories
      @inventory_types = InventoryType.all
+     respond_to do |format|
+    format.js {render layout: false if request.xhr?}
+        # format.js {render :partial => 'search_all' ,:layout => false}
+    end
   end
 
   def show
