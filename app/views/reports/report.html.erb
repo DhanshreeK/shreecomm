@@ -1,19 +1,20 @@
-<div>
-  <ul class="breadcrumb">
-    <li>Dashboard</li>
-        <li><%= link_to 'Home',dashboard_home_index_path%></li>
-            <li><%= link_to 'View All Inventories',inventories_path%></li>
-  </ul>
-</div>
-<br/><br/>
-<div class="row">
-<div class="col-md-3"></div>
-  <div class="col-md-4">
+<div class="panel panel-primary">
+            <div class="panel-heading">Transfer Details
+        </div>
+ <div class="panel-body">
+  <div class="col-md-6 form-group2 group-mail">
+  <%= form_for :inventory_transfer, method: :get,remote:true,id: 'search' do |f|%>
   <font color="red"><b>Select Inventory Type to See Inventory Reports *</b></font>
- <%= select_tag :inventory_type_id, options_for_select(InventoryType.all.collect{|u| [u.name, u.id]}),prompt:'Select a Inventory Type',class: "a-action", :'data-remote' => 'true', :'data-url' => url_for(:controller => 'inventory_transfers', :action => 'select', format: 'js') %>
-  </div>
+ <%= f.select :inventory_type_id, InventoryType.all.collect{|u| [u.name, u.id]},prompt:'Select a Inventory Type',class: 'form-control'%>
+ 
+<%end%></div>
+
+<div id="stage">
+  
 </div>
-<div id="stage"></div>
+ </div>
+</div>
+
 <script type='text/javascript'>
 $('#inventory_transfer_inventory_type_id').on('change', function() {
  var inventory_transfer_inventory_type_id;
@@ -21,7 +22,7 @@ $('#inventory_transfer_inventory_type_id').on('change', function() {
  $.ajax({
    url: '/inventory_transfers/select',
    type: 'GET',
-   dataType: 'js',
+   dataType: 'script',
    data: {inventory_transfer_inventory_type_id: Item},
    }).success(function(data) {
     

@@ -9,7 +9,7 @@ class CustomerDetailsController < ApplicationController
     format.html
     format.json
     format.js 
-    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
+    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'mobile_modal_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
     format.xls { send_data @customer_details.to_csv(col_sep: "\t") }
     end
   end
@@ -86,7 +86,7 @@ class CustomerDetailsController < ApplicationController
     format.html
     format.json
     format.js 
-    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'model_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
+    format.csv { send_data @customer_details.to_csv(['testing_cost','repair_cost','software_testing_cost','compalint_type','status','estimated_cost','balance_cost','advanced_paid','employee_id','bill_no', 'mobile_modal_name','customer_name', 'date', 'address', 'customer_no', 'telephone_no','mobile_no', 'mobile_modal_name', 'purchase_date', 'serial_no', 'full_warranty', 'labor_only', 'parts_only', 'out_of_warranty', 'repair_received', 'repair_completed', 'good_delivered', 'return_by_date', 'defect_description', 'b2b_svc', 'accessory', 'remark', 'repair_description', 'condition_code', 'symptom_code', 'defect_code', 'repair_code']) }
     format.xls { send_data @customer_details.to_csv(col_sep: "\t") }
     end
   end
@@ -187,6 +187,6 @@ class CustomerDetailsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_detail_params
-      params.require(:customer_detail).permit(:custome_name, :imei1, :imei2,:testing_cost,:repair_cost,:software_testing_cost,:compalint_type,:status,:estimated_cost,:balance_cost,:advanced_paid,:employee_id,:bill_no, :mobile_modal_name,:customer_name, :date, :address, :customer_no, :telephone_no, :mobile_no, :model_name, :purchase_date, :serial_no, :full_warranty, :labor_only, :parts_only, :out_of_warranty, :repair_received, :repair_completed, :good_delivered, :return_by_date, :defect_description, :b2b_svc, :accessory, :remark, :repair_description, :condition_code, :symptom_code, :defect_code, :repair_code)
+      params.require(:customer_detail).permit(:custome_name, :imei1, :imei2,:testing_cost,:repair_cost,:software_testing_cost,:compalint_type,:status,:estimated_cost,:balance_cost,:advanced_paid,:employee_id,:bill_no, :mobile_modal_name,:customer_name, :date, :address, :customer_no, :telephone_no, :mobile_no, :mobile_modal_name, :purchase_date, :serial_no, :full_warranty, :labor_only, :parts_only, :out_of_warranty, :repair_received, :repair_completed, :good_delivered, :return_by_date, :defect_description, :b2b_svc, :accessory, :remark, :repair_description, :condition_code, :symptom_code, :defect_code, :repair_code)
     end
 end

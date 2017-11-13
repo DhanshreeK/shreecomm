@@ -11,9 +11,10 @@
       <th><b>Branch</b></th>
       <th><b>Part no</b></th>
       <th><b>Description</b></th>
-      <th><b>Total stock qty</b></th>
+     
       <th><b>Warehouse stock qty</b></th>
       <th><b>Engineer stock qty</b></th>
+       <th><b>Total stock qty</b></th>
       <th><b>Map</b></th>
       <th><b>Total stock value</b></th>
       <th><b>Status</b>/</th>
@@ -29,18 +30,19 @@
         <td><%= inventory.branch %></td>
         <td><%= inventory.part_no %></td>
         <td><%= inventory.description %></td>
-        <td><%= inventory.total_stock_qty %></td>
+      
         <td><%= inventory.warehouse_stock_qty %></td>
         <td><%= inventory.engineer_stock_qty %></td>
+          <td><%= inventory.total_stock_qty %></td>
         <td><%= inventory.map %></td>
         <td><%= inventory.total_stock_value %></td>
         <td><%= inventory.status %></td>
         <td><%= inventory.latest_modify_date %></td>
         <td><%= inventory.inventory_type.name %></td>
-        <td><%= link_to 'Transfer', transfer_inventory_transfer_path(inventory.inventory_type.id, inventory.id),class: "btn btn-danger btn-sm"%></td>
-        <td><%= link_to 'Show', inventory,class: "btn btn-warning btn-sm"  %></td>
-        <td><%= link_to 'Edit', edit_inventory_path(inventory),class: "btn btn-success btn-sm" %></td>
-        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } ,class: "btn btn-danger btn-sm" %></td>
+        <td><%= link_to 'Transfer', transfer_inventory_transfer_path(inventory.inventory_type.id, inventory.id)%></td>
+        <td><%= link_to 'Show', inventory%></td>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory)%></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
       <%end%>
        <%end%>

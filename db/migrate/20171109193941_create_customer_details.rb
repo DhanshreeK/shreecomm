@@ -36,7 +36,7 @@ class CreateCustomerDetails < ActiveRecord::Migration[5.1]
       t.string :estimated_cost
       t.string :balance_cost
       t.string :grand_total
-      t.references :employee, foreign_key: true
+      t.references :employee
 
       t.timestamps
     end

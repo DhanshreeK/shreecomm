@@ -8,7 +8,7 @@ class CreateEmployees < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :address
       t.string :employee_number
-      t.references :employee_type, foreign_key: true
+      t.references :employee_type
 
       t.timestamps
     end

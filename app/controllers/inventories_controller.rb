@@ -1,6 +1,6 @@
 class InventoriesController < ApplicationController
-  before_action :set_inventory, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_inventory, only: [:show, :edit, :update, :destroy, :edit_inventory]
+  respond_to :html, :json
   # GET /inventories
   # GET /inventories.json
   def index
@@ -23,6 +23,15 @@ class InventoriesController < ApplicationController
 
   def view_all
     @inventories = Inventory.all
+  end
+
+   def view_inventories
+    @inventories = Inventory.all
+     respond_to do |format|
+      format.html
+    format.js {render layout: false if request.xhr?}
+        # format.js {render :partial => 'search_all' ,:layout => false}
+    end
   end
 
     # find Inventory from database which we have type in text box
@@ -56,6 +65,20 @@ class InventoriesController < ApplicationController
   def edit
   end
 
+  def edit_inventory
+    respond_to do |format|
+    format.html
+    format.js {render partial: 'edit_modal'}
+  end
+     # respond_modal_with @inventory
+  end
+
+  # def respond_modal_with(*args, &blk)
+  #   options = args.extract_options!
+  #   options[:responder] = ModalResponder
+  #   respond_with *args, options, &blk
+  # end
+
   # POST /inventories
   # POST /inventories.json
   def create
@@ -78,7 +101,7 @@ class InventoriesController < ApplicationController
   def update
     respond_to do |format|
       if @inventory.update(inventory_params)
-        format.html { redirect_to @inventory, notice: 'Inventory was successfully updated.' }
+        format.html { redirect_to inventories_path, notice: 'Inventory was successfully updated.' }
         format.json { render :show, status: :ok, location: @inventory }
       else
         format.html { render :edit }

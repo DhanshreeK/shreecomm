@@ -5,11 +5,7 @@
       <div class="row form-group">
 
       <div class="validation-form">
-        <div class="col-md-4 form-group2 group-mail">
-          <label for="text_input" class="label_height">Select Inventory Type</label>
-            
-             <%= c.collection_select :inventory_type_id, InventoryType.order(:name), :id, :name,{prompt:true}, include_blank: true, class: "form-control" %>
-        </div>
+       
 
          <div class="col-md-4 form-group2 group-mail">
           <label for="text_input" class="label_height">Select Inventory</label>
@@ -132,25 +128,25 @@
 
     </tbody>
   </table>
-
+<br><br>
   <div class="col-md-11" align= "right">
       <div class="pull-right">
         <b>Estimated Cost: </b><%= text_field_tag :amount, @total_estimate_cost =total_amount.to_f + @repair_gst.to_f + @testing_gst.to_f + @software.to_f%></div>
       </div>
-   
+   <br><br>
 
     <div class="col-md-11" align= "right">
       <div class="pull-right">
-        <b>Advanced Paid: </b><%=@customer_detail.advanced_paid.to_f %></div>
+        <b>Advanced Paid: </b><%= text_field_tag :advanced_paid,@customer_detail.advanced_paid.to_f %></div>
       </div>
-   
+   <br><br>
     <div class="col-md-11" align= "right">
       <div class="pull-right">
-        <b>Balanced Payment: </b><%=@total_estimate_cost - @customer_detail.advanced_paid.to_f%></div>
+        <b>Balanced Payment: </b><%= text_field_tag :total_amount,@total_estimate_cost - @customer_detail.advanced_paid.to_f%></div>
       </div>
     </div>
      </div>
-    
+    <br><br>
      
   
 
@@ -185,3 +181,8 @@
 </script>
 
 
+<style type="text/css">
+  .dropdown-menu{
+   position: relative;left: 0px;top: -13px;
+  }
+</style>
