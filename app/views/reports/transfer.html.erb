@@ -2,20 +2,20 @@
        <div class="panel panel-primary">
             <div class="panel-heading">Transfer Details
         </div>
+
  <div class="panel-body">
-<p id="notice"></p>
-     <div class="graph">
-                              <div class="tables">
-                            
-                                <table class="table table-bordered" style="overflow-y: auto;height: 300px;width:100%">
-                <thead>
-    <tr>
+
+    
+<table class="table table-bordered" style="overflow-y: auto;height: 300px;width:100%">
+   <tr>
+  <thead>
+  
       <th><b>Branch</b></th>
       <th><b>Part no</b></th>
       <th><b>Description</b></th>
-       <th><b>Total stock qty Transfered</b></th>
       <th><b>Warehouse stock qty</b></th>
       <th><b>Engineer stock qty</b></th>
+      <th><b>Total stock qty</b></th>
       <th><b>Map</b></th>
       <th><b>Total stock value</b></th>
       <th><b>Status</b>/</th>
@@ -28,16 +28,20 @@
   </thead>
 
   <tbody>
-
+<% total = 0%>
+<% total1 = 0%>
     <%@inventories.each do |inventory|%>
       <tr>
        <%if inventory.transfer_id.present?%>
+       <% total = inventory.warehouse_stock_qty.to_f%>
+        <% total1 = inventory.engineer_stock_qty.to_f%>
         <td><%= inventory.branch %></td>
         <td><%= inventory.part_no %></td>
         <td><%= inventory.description %></td>
-        <td><%= inventory.transfered_stock_qty %></td>
+        
         <td><%= inventory.warehouse_stock_qty %></td>
         <td><%= inventory.engineer_stock_qty %></td>
+        <td><%= total + total1%></td>
         <td><%= inventory.map %></td>
         <td><%= inventory.total_stock_value %></td>
         <td><%= inventory.status %></td>
@@ -53,4 +57,4 @@
   </tbody>
 </table>
 <br>
-</div></div></div></div>
+</div></div>

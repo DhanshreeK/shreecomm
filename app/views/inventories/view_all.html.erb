@@ -1,9 +1,3 @@
-<div class="panel panel-primary">
-            <div class="panel-heading">Inventory Details
-        </div>
- <div class="panel-body">
-<p id="notice"></p>
-<br><br>
 
 <%= form_tag import_inventories_path,url:{action: 'import',controller: 'inventories'}, multipart: true do %>
     <%= file_field_tag :file%>
@@ -73,6 +67,7 @@
 </table>
 
 <br>
+
 
 
 </div></div></div></div>

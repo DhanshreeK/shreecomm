@@ -16,7 +16,7 @@ class CreateInventories < ActiveRecord::Migration[5.1]
       t.string :status
       t.date :latest_modify_date
       t.text :remark
-      t.references :inventory_type, foreign_key: true
+      t.references :inventory_type
 
       t.timestamps
     end

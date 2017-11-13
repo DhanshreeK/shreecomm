@@ -20,7 +20,7 @@
               <%= @inventory.part_no %></td>
             <td>
               <%= @inventory.description %></td>
-             <td><%= @inventory.total_stock_qty %></td>
+             <td><%= @inventory.warehouse_stock_qty %></td>
             <td> <%= text_field_tag :transfer_item, params[:transfer_item], :required => true,class: 'form-control' %></td>
             <td> <%= text_field_tag :remark, params[:remark], :required => true,class: 'form-control' %></td>
 

@@ -28,26 +28,6 @@
     <%= form.text_field :part_no, id: :inventory_part_no, placeholder: "Part No", class: "form-control" %>
   </div>
 
-  
- <div class="col-md-3">
-    <label for="text_input" class="label_height">Total Stock Qty</label>
-         <span style="color:red">*</span>
-    <%= form.text_field :total_stock_qty, id: :inventory_total_stock_qty, placeholder: "Total Stock Qty", class: "form-control"  %>
-  </div>
-
- <div class="col-md-3">
-    <label for="text_input" class="label_height">WareHouse Stock Qty</label>
-         <span style="color:red">*</span>
-    <%= form.text_field :warehouse_stock_qty, id: :inventory_warehouse_stock_qty, placeholder: "WareHouse Stock Qty", class: "form-control"  %>
-  </div>
-
-  
- <div class="col-md-3">
-    <label for="text_input" class="label_height">Engineer Stock Qty </label>
-         <span style="color:red">*</span>
-    <%= form.text_field :engineer_stock_qty, id: :inventory_engineer_stock_qty, placeholder: "Engineer Stock Qty", class: "form-control"  %>
-  </div>
-
  
  <div class="col-md-3">
     <label for="text_input" class="label_height">Location1</label>
@@ -118,6 +98,25 @@
     <%= form.text_area :remark, id: :inventory_remark, placeholder: "Remark", class: "form-control"  %>
   </div>
 
+ <div class="col-md-3">
+    <label for="text_input" class="label_height">WareHouse Stock Qty</label>
+         <span style="color:red">*</span>
+    <%= form.text_field :warehouse_stock_qty, id: :warehouse_stock_qty, placeholder: "WareHouse Stock Qty", class: "form-control"  %>
+  </div>
+
+  
+ <div class="col-md-3">
+    <label for="text_input" class="label_height">Engineer Stock Qty </label>
+         <span style="color:red">*</span>
+    <%= form.text_field :engineer_stock_qty, id: :engineer_stock_qty, placeholder: "Engineer Stock Qty", class: "form-control"  %>
+  </div>
+
+  <div class="col-md-3">
+    <label for="text_input" class="label_height">Total Stock Qty</label>
+         <span style="color:red">*</span>
+    <%= form.text_field :total_stock_qty, id: :total_stock_qty, placeholder: "Total Stock Qty", class: "form-control", readonly:true  %>
+  </div>
+
 
          <div class="col-sm-2 col-sm-offset-5 input_success">
                           <%= form.submit "Submit", class: 'btn btn-success btn-md form-control'%>
@@ -127,3 +126,13 @@
        <% end %>
         </div>
       </div>
+
+<script type='text/javascript'>
+ $(document).on("keyup", "#warehouse_stock_qty, #engineer_stock_qty", function() {
+   var val1 = +$("#warehouse_stock_qty").val();
+   var val2 = +$("#engineer_stock_qty").val();
+          $("#total_stock_qty").val(val1+val2);
+});
+</script>
+
+

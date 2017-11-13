@@ -2562,11 +2562,11 @@ label {
     color: #777;
 }
 button.btn.btn-default {
-    background: #00C6D7;
-    color: #fff;
+    /*background: #00C6D7;*/
+   /* color: #fff;*/
     font-size: 1em;
 	outline:none;
-	border:none;
+/*	border:none;*/
 }
 .graph-2.general {
     width: 100%;

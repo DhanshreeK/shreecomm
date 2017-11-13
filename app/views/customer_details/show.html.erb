@@ -31,12 +31,7 @@
                                     <%= @customer_detail.customer_no %>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>Telephone No:</b></label>&nbsp;
-                                   
-                                    <%= @customer_detail.telephone_no %>
-                            </div>
-
+                            
                             <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Mobile No:</b></label>&nbsp;
                                    
@@ -44,9 +39,16 @@
                             </div>
 
                             <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Alternate Contact No:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.telephone_no %>
+                            </div>
+
+
+                            <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Model Name:</b></label>&nbsp;
                                    
-                                    <%= @customer_detail.model_name %>
+                                    <%= @customer_detail.mobile_modal_name %>
                             </div>
 
                             <div class="col-md-4">
@@ -60,6 +62,32 @@
                                    
                                     <%= @customer_detail.serial_no %>
                             </div>
+
+                              <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>IMEI 1:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.imei1 %>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>IMEI 2:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.imei2%>
+                            </div>
+
+                             <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Condition of Handset:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.condition_code %>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>Accessory:</label>&nbsp;
+                                   
+                                    <%= @customer_detail.accessory %>
+                            </div>
+
 
                             <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Full warranty:</b></label>&nbsp;
@@ -103,18 +131,6 @@
                                     <%= @customer_detail.return_by_date%>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>Defect Description:</b></label>&nbsp;
-                                   
-                                    <%= @customer_detail.defect_description%>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>Accessory:</label>&nbsp;
-                                   
-                                    <%= @customer_detail.accessory %>
-                            </div>
 
                         
                             <div class="col-md-4">
@@ -122,6 +138,14 @@
                                    
                                     <%= @customer_detail.employee.first_name %>
                             </div>
+
+
+                            <div class="col-md-4">
+                                <label for="text_input" class="label_height"><b>CCO:</b></label>&nbsp;
+                                   
+                                    <%= @customer_detail.employee.first_name %>
+                            </div>
+
 
                             <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Repair completed:</b></label>&nbsp;
@@ -135,13 +159,8 @@
                                     <%= @customer_detail.repair_description %>
                             </div>
 
-                           <!--  <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>Condition Code:</b></label>&nbsp;
-                                   
-                                    <%= @customer_detail.condition_code %>
-                            </div>
-
-                            <div class="col-md-4">
+                           
+                          <!--   <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Testing Cost:</b></label>&nbsp;
                                    
                                     <%= @customer_detail.testing_cost %>
@@ -151,25 +170,15 @@
                                 <label for="text_input" class="label_height"><b>Repair Cost:</b></label>&nbsp;
                                    
                                     <%= @customer_detail.repair_cost %>
-                            </div> -->
-
+                            </div>
+ -->
                             <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Software Updation:</b></label>&nbsp;
                                    
                                     <%= @customer_detail.software_testing_cost %>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>IMEI 1:</b></label>&nbsp;
-                                   
-                                    <%= @customer_detail.imei1 %>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label for="text_input" class="label_height"><b>IMEI 2:</b></label>&nbsp;
-                                   
-                                    <%= @customer_detail.imei2%>
-                            </div>
+                          
 
                             <div class="col-md-4">
                                 <label for="text_input" class="label_height"><b>Repair Code:</b></label>&nbsp;

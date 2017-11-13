@@ -36,7 +36,12 @@ Rails.application.routes.draw do
       get  :load_item_data
       get :search_inventory
       get :view_all
+      get :view_inventories
     end
+    member do
+        get :edit_inventory
+         # :defaults => { :format => 'js' }
+      end
   end
 
   resources :inventory_types

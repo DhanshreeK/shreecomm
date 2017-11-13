@@ -1,8 +1,8 @@
 class CustomerDetail < ApplicationRecord   
     belongs_to :employee
     has_many :engineer_detail, dependent: :destroy
-    has_many :inventory
-    has_many :inventory_items
+    has_many :inventories, dependent: :destroy
+    has_many :inventory_items, dependent: :destroy
     accepts_nested_attributes_for :inventory_items, :allow_destroy => true
     scope :shod, ->(id) { where(id: id).take }
     after_save :create_engineer_table

@@ -237,7 +237,6 @@ ActiveRecord::Schema.define(version: 20171110052546) do
   add_foreign_key "inventories", "transfers"
   add_foreign_key "inventory_items", "customer_details"
   add_foreign_key "inventory_items", "inventories"
-  add_foreign_key "inventory_items", "inventory_types"
   add_foreign_key "inventory_logs", "inventory_types"
   add_foreign_key "transfers", "inventory_types"
   add_foreign_key "user_employees", "employees"
